@@ -10,10 +10,11 @@ namespace IocPerformance
         public static IEnumerable<IContainerAdapter> CreateAdapters()
         {
             yield return new NoContainerAdapter();
+            yield return new NoneContainerAdapter();
 
             var containers = typeof(ContainerAdapterFactory).Assembly.GetTypes()
                  .Where(t => t.IsClass && !t.IsAbstract && t.GetInterfaces().Contains(typeof(IContainerAdapter)))
-                 .Where(t => !t.Equals(typeof(NoContainerAdapter))
+                 .Where(t => !t.Equals(typeof(NoContainerAdapter)) && !t.Equals(typeof(NoneContainerAdapter))
                      && !t.Equals(typeof(SpeediocContainerAdapter)) // Causes exceptions at runtime
                      && !t.Equals(typeof(StilettoContainerAdapter))) // Uses Fody which makes build process unstable
                  .Select(t => Activator.CreateInstance(t))

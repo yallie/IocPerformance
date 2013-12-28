@@ -241,6 +241,7 @@
     <Compile Include="Adapters\StilettoContainerAdapter.cs" />
     <Compile Include="Adapters\StructureMapContainerAdapter.cs" />
     <Compile Include="Adapters\NoContainerAdapter.cs" />
+    <Compile Include="Adapters\NoneContainerAdapter.cs" />
     <Compile Include="Adapters\StyleMVVMContainerAdapter.cs" />
     <Compile Include="Adapters\TinyIOCContainerAdapter.cs">
       <SubType>Code</SubType>
